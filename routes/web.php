@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PeticaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,9 +25,12 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function(){
 
     Route::prefix('peticao')->group(function(){
-        Route::get('/',function(){
-            return view('layouts.app_vue');
-        });
+        $controller = PeticaoController::class;
+        Route::get('/', [$controller,'view'])->name('peticao');
+        Route::post('create', [$controller,'create']);
+        Route::get('list', [$controller,'list']);
+        Route::put('update', [$controller,'update']);
+        Route::put('delete', [$controller,'delete']);
     });
 });
 
