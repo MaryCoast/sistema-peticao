@@ -9,7 +9,7 @@ class Peticao extends Model
 {
     use HasFactory;
     protected $table = 'peticoes';
-    public $timespamps = false;
+    public $timestamps = false;
     protected $fillable = [
         'titulo',
         'destinatario',

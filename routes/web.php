@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function(){
         Route::post('create', [$controller,'create']);
         Route::get('list', [$controller,'list']);
         Route::put('update', [$controller,'update']);
-        Route::put('delete', [$controller,'delete']);
+        Route::delete('delete', [$controller,'delete']);
     });
 });
 

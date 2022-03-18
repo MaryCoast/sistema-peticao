@@ -9,7 +9,7 @@
 
     <!-- Provides the application the proper gutter -->
     <v-container fluid>
-        <v-slot></v-slot>
+        <slot></slot>
     </v-container>
   </v-main>
 
