@@ -6,7 +6,7 @@
               <v-card-text>
                   <v-row>
                       <v-col cols="12" md="6">
-                        <v-text-field
+                        <v-text-field dense outlined rounded
                         label="Titulo"
                         v-model="peticao.titulo"
                         :error-messages="erros.titulo"
@@ -14,7 +14,7 @@
                         </v-text-field>
                       </v-col>  
                       <v-col cols="12" md="6">
-                        <v-text-field
+                        <v-text-field dense outlined rounded
                         label="Destinatário"
                         v-model="peticao.destinatario"
                         :error-messages="erros.destinatario"
@@ -22,20 +22,22 @@
                         </v-text-field>
                       </v-col>
                       <v-col cols="12" md="12">
-                        <v-textarea
-                        label="Descricao"
+                        <v-textarea dense outlined rounded
+                        label="Descrição"
                         v-model="peticao.descricao"
                         :error-messages="erros.descricao"
                         >
                         </v-textarea>
                       </v-col>
                   </v-row>
-              </v-card-text>
-              <v-card-actions>
-                  <v-btn color="success" @click="salvar">Salvar</v-btn>
+                  <v-row>
+                  <v-col  class="text-right py-0">
+                  <v-btn color="primary" @click="salvar">Salvar</v-btn>
                   <v-btn color="primary" @click="listar">Pesquisar</v-btn>
-                  <v-btn color="error" @click="limpar">Cancelar</v-btn>
-              </v-card-actions>
+                  <v-btn color="primary" @click="limpar">Cancelar</v-btn>
+                  </v-col>
+              </v-row>
+              </v-card-text>            
 
               <v-card-text>
                   <v-simple-table>
@@ -50,7 +52,7 @@
                       </thead>
                       <tbody>
 
-                          <tr v-for="peticao in peticoes" :key="peticao.id">
+                          <tr v-for="peticao in peticoes" :key="peticao.id" :class="{'accent':index%2==0}">
                             <td>{{peticao.id}}</td>
                             <td>{{peticao.titulo}}</td>
                             <td>{{peticao.destinatario}}</td>
