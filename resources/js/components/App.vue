@@ -1,7 +1,9 @@
 <template>
 <v-app>
-  <v-app-bar app>
-      <v-app-bar-title>Teixeira</v-app-bar-title>
+  <v-app-bar color="primary" dark app>
+      <v-app-bar-title>Henrique T.</v-app-bar-title>
+      <v-spacer></v-spacer>
+      <v-btn :href="logout" color="secondary">Sair</v-btn>
   </v-app-bar>
 
   <!-- Sizes your content based upon application components -->
@@ -21,6 +23,11 @@
 
 <script>
 export default {
+  data(){
+    return{
+    logout: `${window.location.origin}/logout`,
+    }
+  }
 
 }
 </script>

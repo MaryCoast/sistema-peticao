@@ -46,17 +46,15 @@
                             <th>Id</th>
                             <th>Titulo</th>
                             <th>Destinatário</th>
-                            <th>Descrição</th>
                             <th>Ação</th>
                           </tr>
                       </thead>
                       <tbody>
 
-                          <tr v-for="peticao in peticoes" :key="peticao.id" :class="{'accent':index%2==0}">
+                          <tr v-for="peticao,index in peticoes" :key="peticao.id" :class="{'accent':index%2==0}">
                             <td>{{peticao.id}}</td>
                             <td>{{peticao.titulo}}</td>
                             <td>{{peticao.destinatario}}</td>
-                            <td>{{peticao.descricao}}</td>
                             <td>
                               <v-btn icon><v-icon @click="selecionar(peticao)">mdi-archive-edit-outline</v-icon></v-btn>
                               <v-btn icon><v-icon @click="deletar(peticao.id)">mdi-delete-forever</v-icon></v-btn>
@@ -126,7 +124,7 @@ export default {
                 });
         },
         selecionar(dado){
-            this.peticao = dado;
+            this.peticao = JSON.parse(JSON.stringify(dado));
         },
         deletar(id){
             let params = {id}
